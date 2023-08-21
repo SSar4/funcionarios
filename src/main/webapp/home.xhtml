@@ -11,19 +11,20 @@
 </h:head>
 
 <h:body>
-	<header>
-		<h:graphicImage library="test" name="java1.jpg" width="50" height="20"></h:graphicImage>
-	</header>
 
 
 
-	<div class="container"></div>
-	<h1>Listagem de Pessoas</h1>
+	<div class="container">
+		<h1>Listagem de Pessoas</h1>
+	</div>
+	<br />
+	<br />
 	<h:form>
 
-		<p:commandButton icon="" value="Cadastrar"
-			action="#{pessoaBeans.iniciarForm()}" />
-
+		<p:commandButton style="margin-left: 190px;" icon=""
+			value="Cadastrar nova pessoa" action="#{pessoaBeans.iniciarForm()}" />
+		<br />
+		<br />
 		<p:dataTable id="pessoaTable" value="#{pessoaBeans.listaPessoas}"
 			var="pessoas" emptyMessage="Nenhuma informação a ser exibida"
 			paginator="true" rows="10" paginatorPosition="bottom">
@@ -65,9 +66,11 @@
 				<p:commandButton icon="pi pi-trash" title="Excluir"
 					action="#{pessoaBeans.excluir(pessoas)}" update="pessoaTable" />
 			</p:column>
-
-
 		</p:dataTable>
+	</h:form>
+	<br/>
+	<h:form>
+		<p:commandButton action="#{sessionBeans.logout()}" style="margin-left: 190px;" icon="" value="logOut"></p:commandButton>
 	</h:form>
 </h:body>
 </html>

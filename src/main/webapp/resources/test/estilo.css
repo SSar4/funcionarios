@@ -1,88 +1,36 @@
-@charset "utf-8";
-
-body {
-	font-size: 12px;
-	font-family: Arial, Helvetica, sans-serif;
-	margin: 0px;
-	font-weight: normal
-}
-
-header {
-	padding: 5px;
-	margin-bottom: 20px;
-	height: 50px;
-	background-color: #545454;
-	color: #fff;
-	box-shadow: 0px 2px 2px #ccc
-}
-
-#conteudo {
-	padding: 0px 8px
-}
-
-footer {
-	border-top: 1px solid #ccc;
-	padding: 5px 8px;
-	margin-top: 20px;
-	margin-bottom: 10px
-}
-
-h1 {
-	font-size: 24px;
-	font-weight: 500;
-	padding: 0px;
-	margin: 0px;
-	margin-bottom: 10px
-}
-
-/* Estilos gerais */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
+/* Estilo para o container */
 .container {
-  max-width: 800px;
+  width: 80%;
   margin: 0 auto;
   padding: 20px;
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-}
-
-/* Formulário */
-.form-label {
-  font-weight: bold;
-}
-
-.form-input {
-  width: 100%;
-  padding: 5px;
+  background-color: #f0f0f0;
   border: 1px solid #ccc;
-  border-radius: 3px;
 }
 
-.select-menu {
+/* Estilo para os títulos */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para o formulário */
+h\:form {
   width: 100%;
-  padding: 5px;
+  margin-top: 20px;
 }
 
-.submit-button {
+/* Estilo para o botão de comando */
+.p\:commandButton {
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
   border: none;
-  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 4px;
 }
 
-.submit-button:hover {
+/* Estilo quando o botão de comando é hover */
+.p\:commandButton:hover {
   background-color: #0056b3;
 }
-
-

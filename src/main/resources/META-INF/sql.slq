@@ -53,10 +53,18 @@ id_pessoa int NOT NULL UNIQUE,
 salario numeric(10,2),
 CONSTRAINT id_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id))
 
+ALTER TABLE pessoa_salario
+DROP CONSTRAINT IF EXISTS fk_id_pessoa;
+
+ALTER TABLE pessoa_salario
+ADD CONSTRAINT fk_id_pessoa
+FOREIGN KEY (id_pessoa)
+REFERENCES pessoa(id)
+ON DELETE CASCADE;
 
 -- Inserindo dados na tabela pessoa
 INSERT INTO pessoa_salario (id_pessoa, salario)
 VALUES
     (1, 8000.00),
-    (2, 600.00),
+    (2, 6000.00),
     (3, 800.00);

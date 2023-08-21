@@ -36,12 +36,6 @@ public class PessoaSalarioService implements Serializable {
 		return novoSalario;
 	}
 
-	public boolean calcularSalario(Pessoa p, int porcentagem) {
-		if (p != null && p.getSalario() != null) {
-			p.getSalario().setSalario(calcularNovoSalario(p.getSalario().getSalario(), porcentagem));
-			servicePs.insert(p.getSalario());
-		}
-		return false;
-	}
+
 
 }

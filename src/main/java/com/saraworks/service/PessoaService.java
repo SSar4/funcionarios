@@ -23,20 +23,20 @@ public class PessoaService implements Serializable {
 
 	@Inject
 	private PessoaSalarios ps;
-	
-	@Inject
-	private PessoaSalario salario;
 
-	@Transacional
 	public Pessoa inserir(Pessoa p) {
-		Pessoa nova =  pessoas.guardar(p);
-		
-		if(p.getId() == null) {
-			salario.setPessoa(nova);
-			salario.setSalario(p.getCargo().getSalario());
-			ps.insert(salario);
+		if (p.getId() == null) {
+			PessoaSalario ps = new PessoaSalario();
+			ps.setSalario(p.getCargo().getSalario());
+			ps.setPessoa(p);
+			p.setSalario(ps);
+		} else {
+			p.getSalario().setSalario(p.getCargo().getSalario());;
 		}
-		return nova;
+		
+		System.out.print(p.getId());
+
+		return pessoas.guardar(p);
 	}
 
 	@Transacional

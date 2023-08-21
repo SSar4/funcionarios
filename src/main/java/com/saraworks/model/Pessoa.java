@@ -32,7 +32,7 @@ public class Pessoa implements Serializable {
 	@JoinColumn(name = "id_cargo")
 	private Cargo cargo;
 
-	@OneToOne(mappedBy = "pessoa", cascade = CascadeType.REMOVE, optional = true)
+	@OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, optional = true)
 	private PessoaSalario salario;
 
 	public Long getId() {
@@ -102,8 +102,9 @@ public class Pessoa implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", cargo=" + cargo
-				+ ", salario=" + salario + "]";
+		return "Pessoa [id=" + id + "]";
 	}
+
+	
 
 }
