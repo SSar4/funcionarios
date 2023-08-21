@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>Empresa sara</title>
+	<h:outputStylesheet library="test" name="estilo.css"></h:outputStylesheet>
+</h:head>
+<body>
+	<h:form class="grid" id="formulario">
+
+		<h:panelGrid columns="1">
+			<h:outputLabel for="nome" value="nome:" />
+			<h:inputText id="nome" value="#{pessoaBeans.pessoa.nome}"
+				required="true" />
+
+			<h:outputLabel for="email" value="email:" />
+			<h:inputText id="email" value="#{pessoaBeans.pessoa.email}"
+				required="true" />
+
+			<h:outputLabel for="password" value="Password:" />
+			<h:inputText id="password" value="#{pessoaBeans.pessoa.senha}"
+				required="true" />
+			<h:outputLabel for="cargo" value="Cargo:" />
+			<p:selectOneMenu value="#{pessoaBeans.valorSelecionado}" id="cargo">
+				<f:selectItem itemLabel="--" itemValue="0" />
+				<f:selectItem itemLabel="Gerente" itemValue="1" />
+				<f:selectItem itemLabel="Analista" itemValue="2" />
+				<f:selectItem itemLabel="Desenvolvedor" itemValue="3" />
+				<f:selectItem itemLabel="Designer" itemValue="4" />
+				<f:selectItem itemLabel="Assistente" itemValue="5" />
+				<f:selectItem itemLabel="Outro" itemValue="6" />
+				<!-- Adicione mais opções conforme necessário -->
+			</p:selectOneMenu>
+
+		
+		</h:panelGrid>
+
+
+
+
+		<h:commandButton value="Salvar" action="#{pessoaBeans.cadastra()}" />
+	</h:form>
+</body>
+</html>

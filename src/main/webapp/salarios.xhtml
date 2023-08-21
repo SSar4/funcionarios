@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Calculadora de Aumento de Salário</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h2>Calculadora de Aumento de Salário</h2>
+        
+        <h:outputLabel for="salarioAtual" value="Salário Atual:" />
+        <p:inputText id="salarioAtual" value="#{pessoaBeans.pessoa.salario.salario}" />
+        
+        <h:outputLabel value="Selecione a porcentagem de aumento:" />
+        <p:selectOneMenu value="#{pessoaBeans.porcentagemAumento}">
+            <f:selectItem itemLabel="Selecione..." itemValue="" />
+            <f:selectItem itemLabel="5%" itemValue="5" />
+            <f:selectItem itemLabel="10%" itemValue="10" />
+            <f:selectItem itemLabel="15%" itemValue="15" />
+        </p:selectOneMenu>
+        
+        <p:commandButton value="Calcular" action="#{pessoaBeans.calcularAumento}" update="resultado" />
+        
+        <h3>Resultado:</h3>
+        <h:outputText id="resultado" value="#{pessoaBeans.resultado}" />
+        <br/>
+        <br/>
+          <p:commandButton value="enviar" action="#{pessoaBeans.salvarSalario}"/>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,62 @@
+CREATE TABLE cargo (
+    id_cargo serial PRIMARY KEY,
+    nome_cargo varchar NOT NULL,
+    salario DECIMAL(10, 2) NOT NULL
+);
+
+
+-- Inserir um cargo de gerente com salário
+INSERT INTO cargo (nome_cargo, salario) VALUES ('Gerente', 8000.00);
+
+-- Inserir um cargo de analista com salário
+INSERT INTO cargo (nome_cargo, salario) VALUES ('Analista', 6000.00);
+
+-- Inserir um cargo de desenvolvedor com salário
+INSERT INTO cargo (nome_cargo, salario) VALUES ('Desenvolvedor', 5500.00);
+
+-- Inserir um cargo de designer com salário
+INSERT INTO cargo (nome_cargo, salario) VALUES ('Designer', 5000.00);
+
+-- Inserir um cargo de assistente com salário
+INSERT INTO cargo (nome_cargo, salario) VALUES ('Assistente', 4000.00);
+
+-- Inserir outro cargo com salário
+INSERT INTO cargo (nome_cargo, salario) VALUES ('Outro', 3500.00);
+
+
+
+
+CREATE TABLE pessoa (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    id_cargo INT,
+    FOREIGN KEY (id_cargo) REFERENCES cargo (id_cargo)
+);
+
+
+-- Inserindo dados na tabela pessoa
+INSERT INTO pessoa (email, nome, senha, id_cargo)
+VALUES
+    ('joao@example.com', 'João Silva', 'senha123', 1),
+    ('maria@example.com', 'Maria Santos', 'senha456', 2),
+    ('carlos@example.com', 'Carlos Oliveira', 'senha789', 1);
+
+
+
+
+-- Tabela Pessoa_Salario
+CREATE TABLE pessoa_salario(
+id_salario SERIAL PRIMARY KEY,
+id_pessoa int NOT NULL UNIQUE,
+salario numeric(10,2),
+CONSTRAINT id_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id))
+
+
+-- Inserindo dados na tabela pessoa
+INSERT INTO pessoa_salario (id_pessoa, salario)
+VALUES
+    (1, 8000.00),
+    (2, 600.00),
+    (3, 800.00);

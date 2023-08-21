@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<title>Empresa sara</title>
+	<h:outputStylesheet library="test" name="estilo.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+	<header>
+		<h:graphicImage library="test" name="java1.jpg" width="50" height="20"></h:graphicImage>
+	</header>
+
+
+
+	<div class="container"></div>
+	<h1>Listagem de Pessoas</h1>
+	<h:form>
+
+		<p:commandButton icon="" value="Cadastrar"
+			action="#{pessoaBeans.iniciarForm()}" />
+
+		<p:dataTable id="pessoaTable" value="#{pessoaBeans.listaPessoas}"
+			var="pessoas" emptyMessage="Nenhuma informação a ser exibida"
+			paginator="true" rows="10" paginatorPosition="bottom">
+			<p:column headerText="id">
+				<h:outputText value="#{pessoas.id}" />
+			</p:column>
+			<p:column headerText="Nome" sortBy="#{pessoas.nome}">
+				<h:outputText value="#{pessoas.nome}" />
+			</p:column>
+			<p:column headerText="email">
+				<h:outputText value="#{pessoas.email}" />
+			</p:column>
+
+
+			<p:column headerText="Cargo">
+				<h:outputText value="#{pessoas.cargo.nomeCargo}" />
+			</p:column>
+
+			<p:column headerText="Salario Cargo">
+				<h:outputText value="#{pessoas.cargo.salario}" />
+			</p:column>
+
+			<p:column headerText="Salario Real">
+				<h:outputText value="#{pessoas.salario.salario}" />
+			</p:column>
+
+			<p:column headerText="Recalcular">
+				<p:commandButton value="recalcular salario"
+					action="#{pessoaBeans.paginaCalcularSalario(pessoas)}" />
+			</p:column>
+
+
+			<p:column headerText="Editar">
+				<p:commandButton icon="pi pi-pencil"
+					action="#{pessoaBeans.preencherFormulario(pessoas.id)}" />
+			</p:column>
+
+			<p:column headerText="Ações">
+				<p:commandButton icon="pi pi-trash" title="Excluir"
+					action="#{pessoaBeans.excluir(pessoas)}" update="pessoaTable" />
+			</p:column>
+
+
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
