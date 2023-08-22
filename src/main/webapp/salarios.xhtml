@@ -10,9 +10,9 @@
 	<ui:define name="centro">
 	
 		<h:form id="id-forme-login">
-				<h4>#{pessoaBeans.pessoa.nome}"</h4>
-			<h:outputLabel for="salarioAtual" value="Salário Atual:" />
-			<h:inputText id="salarioAtual"
+				<h4>#{pessoaBeans.pessoa.nome}</h4>
+			<h:outputLabel for="salarioAtual"  value="Salário Atual:" />
+			<h:inputText id="salarioAtual" disabled="true"
 				value="#{pessoaBeans.pessoa.salario.salario}" />
 			<h:outputLabel value="Selecione a porcentagem de aumento:" />
 			<h:inputText id="porcentagem"

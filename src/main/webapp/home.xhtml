@@ -12,25 +12,26 @@
 
 <h:body>
 
-
+    
+<p:messages style="margin-left: 190px; width: 50%;"  id="messages" autoUpdate="false" showDetail="false" closable="true"/>
 
 	<div class="container">
 		<h1>Listagem de Pessoas</h1>
 	</div>
 	<br />
 	<br />
-	<h:form>
 
+	<h:form>
+		
 		<p:commandButton style="margin-left: 190px;" icon=""
 			value="Cadastrar nova pessoa" action="#{pessoaBeans.iniciarForm()}" />
 		<br />
 		<br />
-		<p:dataTable id="pessoaTable" value="#{pessoaBeans.listaPessoas}"
-			var="pessoas" emptyMessage="Nenhuma informação a ser exibida"
-			paginator="true" rows="10" paginatorPosition="bottom">
-			<p:column headerText="id">
-				<h:outputText value="#{pessoas.id}" />
-			</p:column>
+		<p:dataTable style="margin-left: 190px; width: 80%;" id="pessoaTable"
+			value="#{pessoaBeans.listaPessoas}" var="pessoas"
+			emptyMessage="Nenhuma informação a ser exibida" paginator="true"
+			rows="10" paginatorPosition="bottom">
+			
 			<p:column headerText="Nome" sortBy="#{pessoas.nome}">
 				<h:outputText value="#{pessoas.nome}" />
 			</p:column>
@@ -43,11 +44,8 @@
 				<h:outputText value="#{pessoas.cargo.nomeCargo}" />
 			</p:column>
 
-			<p:column headerText="Salario Cargo">
-				<h:outputText value="#{pessoas.cargo.salario}" />
-			</p:column>
 
-			<p:column headerText="Salario Real">
+			<p:column headerText="Salario">
 				<h:outputText value="#{pessoas.salario.salario}" />
 			</p:column>
 
@@ -68,9 +66,10 @@
 			</p:column>
 		</p:dataTable>
 	</h:form>
-	<br/>
+	<br />
 	<h:form>
-		<p:commandButton action="#{sessionBeans.logout()}" style="margin-left: 190px;" icon="" value="logOut"></p:commandButton>
+		<p:commandButton action="#{sessionBeans.logout()}"
+			style="margin-left: 190px;" icon="" value="logOut"></p:commandButton>
 	</h:form>
 </h:body>
 </html>

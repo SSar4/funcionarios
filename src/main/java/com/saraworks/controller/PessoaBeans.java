@@ -55,6 +55,7 @@ public class PessoaBeans implements Serializable {
 
 		pessoa.setSalario(pessoa.getSalario());
 		listaPessoas.add(pessoa);
+		this.message.addMessage(pessoa.getNome() + " cadastro realizado com sucesso");
 		valorSelecionado = 0;
 
 		pessoa = new Pessoa();
@@ -85,14 +86,21 @@ public class PessoaBeans implements Serializable {
 	}
 
 	public boolean checkPermissao() {
-		Long usuario = (Long) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pessoa");
-		Pessoa isAdmin = pessoas.porId(usuario);
+		try {
+			Long usuario = (Long) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pessoa");
+			if (usuario != null) {
 
-		if (isAdmin.getCargo().getIdCargo() == 1) {
-			return true;
+				Pessoa isAdmin = pessoas.porId(usuario);
+				if (isAdmin.getCargo().getIdCargo() == 1) {
+					return true;
+				}
+			}
+
+			return false;
+		} catch (Exception e) {
+			return false;
 		}
 
-		return false;
 	}
 
 	public String editar(Pessoa p) {
@@ -105,7 +113,7 @@ public class PessoaBeans implements Serializable {
 	}
 
 	public String preencherFormulario(int id) {
-		if(!checkPermissao()) {
+		if (!checkPermissao()) {
 			this.message.addMessage("err: voce nao tem permissao");
 			return "home.xhtml?faces-redirect=true";
 		}
@@ -135,7 +143,7 @@ public class PessoaBeans implements Serializable {
 	}
 
 	public String paginaCalcularSalario(Pessoa p) {
-		if(!checkPermissao()) {
+		if (!checkPermissao()) {
 			this.message.addMessage("err: voce nao tem permissao");
 			return "home.xhtml?faces-redirect=true";
 		}
@@ -180,7 +188,7 @@ public class PessoaBeans implements Serializable {
 		pessoa.setSalario(pessoa.getSalario());
 		listaPessoas.add(pessoa);
 		valorSelecionado = 0;
-
+		this.message.addMessage("salario atualizado");
 		pessoa.getSalario().setSalario(0F);
 
 		porcentagemAumento = 0;
