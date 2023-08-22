@@ -22,6 +22,7 @@
 - HIBERNATE (ORM)
 - CDI
 - JAVA
+- SQL
 
 ## ✋🏻 Pré-requisitos
 - Serviço de banco de dados instalado na maquina ou container
@@ -31,10 +32,11 @@
 
 1. Faça um clone desse repositório;
 2. Entre na pasta `cd java-jsf-test`
-3. Certifique-se de que o Maven esteja instalado no seu sistema `mvn --version`.
-3. No diretório do projeto (onde está localizado o arquivo pom.xml), execute o     comando mvn install. 
-4. Certifique-se de ter algum servidor web instalado, sujestão tom-cat >= 9.0 
-5. O caminho do projeto será de acordo com as configurações do seu servidor.
+3. Procure por o arquivo sql.sql para rodar as configurações do banco de dados.
+4. Certifique-se de que o Maven esteja instalado no seu sistema `mvn --version`.
+5. No diretório do projeto (onde está localizado o arquivo pom.xml), execute o     comando mvn install. 
+6. Certifique-se de ter algum servidor web instalado, sujestão tom-cat >= 9.0 
+7. O caminho do projeto será de acordo com as configurações do seu servidor.
 
 ## ⚡️ Como contribuir
 
