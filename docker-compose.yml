@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+ db:
+  build: ./banco
+  image: empresa/banco
+  container_name: banco
+  ports: 
+    - "5433:5432"
+ web:
+  build: .
+  restart: always
+  depends_on: 
+   - db
+  image: empresa/app
+  container_name: app
+  ports: 
+    - "8080:8080" 
+  external_links: 
+    - db    
