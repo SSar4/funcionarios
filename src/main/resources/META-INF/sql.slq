@@ -51,7 +51,7 @@ CREATE TABLE pessoa_salario(
 id_salario SERIAL PRIMARY KEY,
 id_pessoa int NOT NULL UNIQUE,
 salario numeric(10,2),
-CONSTRAINT id_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id))
+CONSTRAINT id_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id));
 
 ALTER TABLE pessoa_salario
 DROP CONSTRAINT IF EXISTS fk_id_pessoa;
@@ -67,4 +67,4 @@ INSERT INTO pessoa_salario (id_pessoa, salario)
 VALUES
     (1, 8000.00),
     (2, 6000.00),
-    (3, 800.00);
+    (3, 5500.00);

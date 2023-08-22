@@ -72,7 +72,7 @@ public class Pessoas implements Serializable {
 		// SELECT DISTINCT e FROM Pessoa e LEFT JOIN e.cargo c =
 		// c.id_cargo
 		TypedQuery<Pessoa> query = manager.createQuery(
-				"SELECT DISTINCT e FROM Pessoa e LEFT  JOIN e.cargo c LEFT JOIN e.salario s", Pessoa.class);
+				"SELECT DISTINCT e FROM Pessoa e LEFT JOIN e.cargo c LEFT JOIN e.salario s", Pessoa.class);
 		List<Pessoa> pessoas = query.getResultList();
 
 		// for (Pessoa pessoa : pessoas) {
