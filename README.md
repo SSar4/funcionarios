@@ -3,7 +3,7 @@
   Empresa
 </h3>
 
-<p align="center"> A aplicação  consiste em criar um simples crud de gerenciar usuarios de uma empresa, exigindo permissão de gerente para adicionar, editar excluir e recalcular salario de um funcionario e login e logOut na aplicação
+<p align="center"> A aplicação  consiste em criar um simples crud de gerenciar usuarios de uma empresa, exigindo permissão de gerente para adicionar, editar excluir e recalcular salario de um funcionario e autenticação via login e senha
 
 - Fazer login/logOut
 - Editar / recalcular salario de funcionario
