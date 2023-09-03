@@ -27,7 +27,7 @@
 ## ✋🏻 Pré-requisitos
 - Serviço de banco de dados instalado na maquina ou container
 - [java ](https://www.java.com/pt-BR/) `Vesão 8 ou superior`
-- [mavem](https://maven.apache.org/) `Vesão 3.8 ou superior`
+- [maven ](https://maven.apache.org/) `Vesão 3.8 ou superior`
 
 
 1. Faça um clone desse repositório;
